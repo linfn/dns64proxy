@@ -47,6 +47,6 @@ dns64server: ["2001:67c:27e4:15::64", "2001:67c:27e4:15::6411"]
 To check if it works fine, `curl` an IPv4-only website such as github.com.
 
 ```shell
-curl -6 -v github.com
+curl -6 -v https://github.com
 ```
 
