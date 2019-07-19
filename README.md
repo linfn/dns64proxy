@@ -4,6 +4,8 @@ A simple dns64 proxy.
 
 It returns AAAA records with these synthetic IPv6 addresses for IPv4-only destinations (with A but not AAAA records in the DNS).
 
+![Build Status](https://travis-ci.com/linfn/leetcode.svg?branch=master)
+
 ## Installation
 
 ```shell
