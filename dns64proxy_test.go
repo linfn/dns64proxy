@@ -117,14 +117,14 @@ func query(addr string, name string) (*dns.AAAA, error) {
 }
 
 func TestDNSWithPrefix(t *testing.T) {
-	defer startUpstream(t, "[::1]:15353", false)()
-	defer startUpstream(t, "[::1]:15354", true)()
-	addr := "[::1]:53533"
+	defer startUpstream(t, ":15353", false)()
+	defer startUpstream(t, ":15354", true)()
+	addr := "localhost:53533"
 	srv := Server{
 		Config: Config{
-			Address:     addr,
+			Address:     ":53533",
 			Network:     network,
-			NameServers: []string{"[::1]:15353", "[::1]:15354"},
+			NameServers: []string{"localhost:15353", "localhost:15354"},
 			IPv6Prefix:  "64:ff9b::/96",
 		},
 	}
@@ -185,15 +185,15 @@ func startUpstream64(t *testing.T, addr string) (close func()) {
 }
 
 func TestDNSWithDNS64Upstream(t *testing.T) {
-	defer startUpstream(t, "[::1]:15355", true)()
-	defer startUpstream64(t, "[::1]:16464")()
-	addr := "[::1]:53533"
+	defer startUpstream(t, ":15355", true)()
+	defer startUpstream64(t, ":16464")()
+	addr := "localhost:53533"
 	srv := Server{
 		Config: Config{
-			Address:      addr,
+			Address:      ":53533",
 			Network:      network,
-			NameServers:  []string{"[::1]:15355"},
-			DNS64Servers: []string{"[::1]:16464"},
+			NameServers:  []string{"localhost:15355"},
+			DNS64Servers: []string{"localhost:16464"},
 		},
 	}
 	go func() {
