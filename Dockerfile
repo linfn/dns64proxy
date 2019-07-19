@@ -5,6 +5,7 @@ RUN apk update && apk add git
 WORKDIR /dns64proxy
 COPY . .
 
+ARG GOPROXY
 RUN go build .
 
 FROM alpine

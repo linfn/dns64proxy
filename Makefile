@@ -8,7 +8,7 @@ test:
 
 .PHONY: docker
 docker:
-	docker build -t linfn/dns64proxy .
+	docker build --build-arg GOPROXY=https://goproxy.io -t linfn/dns64proxy .
 
 .PHONY: docker-push
 docker-push:
