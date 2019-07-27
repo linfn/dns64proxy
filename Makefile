@@ -4,7 +4,7 @@ all:
 
 .PHONY: test
 test:
-	go test ./...
+	go test -race -coverprofile=coverage.txt
 
 .PHONY: docker
 docker:

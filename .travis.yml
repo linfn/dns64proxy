@@ -2,10 +2,11 @@ language: go
 
 go:
   - 1.12.x
-  - master
+  - tip
 
 env:
   - GO111MODULE=on
 
 script:
   - make test
+  - bash <(curl -s https://codecov.io/bash)
